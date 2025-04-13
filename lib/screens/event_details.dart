@@ -5,7 +5,7 @@ class EventDetailsScreen extends StatelessWidget {
   final String date;
   final String description;
 
-  EventDetailsScreen({required this.title, required this.date, required this.description});
+  const EventDetailsScreen({super.key, required this.title, required this.date, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class EventDetailsScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Event Date: $date',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),
+              style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               'Description:',
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               description,
               style: TextStyle(fontSize: 16.0, color: Colors.grey[700]),

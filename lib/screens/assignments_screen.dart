@@ -25,16 +25,18 @@ class AssignmentsScreen extends StatelessWidget {
     },
   ];
 
+  AssignmentsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        backgroundColor: Colors.indigo,
+        title: const Text(
           'Assignments',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -44,24 +46,24 @@ class AssignmentsScreen extends StatelessWidget {
             final assignment = assignments[index];
             return Card(
               elevation: 4.0,
-              margin: EdgeInsets.symmetric(vertical: 8.0),
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: ListTile(
-                contentPadding: EdgeInsets.all(16.0),
+                contentPadding: const EdgeInsets.all(16.0),
                 title: Text(
                   assignment['title'] ?? 'No Title',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent,
+                    color: Colors.black,
                   ),
                 ),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       'Due Date: ${assignment['dueDate'] ?? 'No Date'}',
                       style: TextStyle(
@@ -69,7 +71,7 @@ class AssignmentsScreen extends StatelessWidget {
                         color: Colors.grey[600],
                       ),
                     ),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     Text(
                       'Description: ${assignment['description'] ?? 'No Description'}',
                       style: TextStyle(
@@ -79,9 +81,9 @@ class AssignmentsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.assignment_turned_in,
-                  color: Colors.blueAccent,
+                  color: Colors.black,
                 ),
                 onTap: () {
                   // You can add tap functionality, e.g., view detailed assignment

@@ -5,12 +5,13 @@ class QRCodeScreen extends StatelessWidget {
   final String studentData =
       'Name: Ali Ahmad\nGPA: 3.8\nDepartment: Information Technology\nID: 220243';
 
+  const QRCodeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[100], // Set background color to dark blue
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Your QR Code',
           style: TextStyle(
               fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -23,17 +24,17 @@ class QRCodeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Text(
+            const Text(
               'Scan the QR Code for attendence:',
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.w500,
                 color: Colors.black87,
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Container(
-              padding: EdgeInsets.all(24.0),
+              padding: const EdgeInsets.all(18.0),
               decoration: BoxDecoration(
                 color: Colors.indigo,
                 borderRadius: BorderRadius.circular(20.0),
@@ -41,17 +42,17 @@ class QRCodeScreen extends StatelessWidget {
                   BoxShadow(
                     color: Colors.blueAccent.withOpacity(0.2),
                     blurRadius: 15.0,
-                    offset: Offset(0, 6),
+                    offset: const Offset(0, 6),
                   ),
                 ],
               ),
               child: QrImageView(
                 data: studentData, // The data embedded in the QR code
                 size: 200.0, // Adjust QR code size
-                backgroundColor: Colors.white60,
+                backgroundColor: Colors.white70,
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Image.asset(
               'lib/images/QR Code-rafiki.png',
               width: double.infinity,

@@ -4,6 +4,11 @@ class TimetableScreen extends StatelessWidget {
   // Example timetable data
   final List<Map<String, String>> timetable = [
     {
+      'day': 'Sunday',
+      'time': '9:00 AM - 10:30 AM',
+      'subject': 'Computer Networks'
+    },
+    {
       'day': 'Monday',
       'time': '9:00 AM - 11:00 AM',
       'subject': 'Software Development'
@@ -11,7 +16,7 @@ class TimetableScreen extends StatelessWidget {
     {
       'day': 'Monday',
       'time': '11:00 AM - 1:00 PM',
-      'subject': 'Computer Network'
+      'subject': 'Computer Networks'
     },
     {
       'day': 'Tuesday',
@@ -26,19 +31,20 @@ class TimetableScreen extends StatelessWidget {
     {
       'day': 'Thursday',
       'time': '2:00 PM - 4:00 PM',
-      'subject': 'Computer Science'
+      'subject': 'Operating Systems'
     },
   ];
+
+  TimetableScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         automaticallyImplyLeading: true,
         elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Text(
+        backgroundColor: Colors.indigo,
+        title: const Text(
           'Timetable',
           style: TextStyle(
             fontSize: 26.0,
@@ -47,7 +53,7 @@ class TimetableScreen extends StatelessWidget {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -61,19 +67,25 @@ class TimetableScreen extends StatelessWidget {
         child: ListView(
           children: [
             // Group timetable entries by day
-            for (var day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday'])
+            for (var day in [
+              'Sunday',
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday'
+            ])
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     day,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 11, 46, 107),
+                      color: Color.fromARGB(255, 11, 46, 107),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   // Filter timetable by the current day
                   ...timetable.where((item) => item['day'] == day).map((item) {
                     return Card(
@@ -81,17 +93,17 @@ class TimetableScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      margin: EdgeInsets.symmetric(vertical: 8.0),
+                      margin: const EdgeInsets.symmetric(vertical: 8.0),
                       child: ListTile(
-                        contentPadding: EdgeInsets.symmetric(
+                        contentPadding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 15.0),
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.access_time,
                           color: Colors.blueAccent,
                         ),
                         title: Text(
                           item['subject'] ?? 'Unknown',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -100,7 +112,6 @@ class TimetableScreen extends StatelessWidget {
                           '${item['time']}',
                           style: TextStyle(color: Colors.grey[600]),
                         ),
-                        tileColor: const Color.fromARGB(255, 255, 255, 255),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                         ),
@@ -109,7 +120,7 @@ class TimetableScreen extends StatelessWidget {
                         },
                       ),
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
           ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Sample student data
@@ -8,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
     String studentID = "12345";
     String email = "ali.ahmad@college.edu";
     String profileImage =
-        "https://www.example.com/profile.jpg"; // Placeholder for profile image URL
+        "lib/images/aliprofile.jpg"; // Placeholder for profile image URL
     double gpa = 3.85; // Example GPA
     String department = "Computer Science"; // Example department
     String phoneNumber = "+20 123 456 789"; // Example phone number
@@ -16,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Profile'),
+        title: const Text('Student Profile'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -29,51 +31,51 @@ class ProfileScreen extends StatelessWidget {
                 backgroundImage: NetworkImage(profileImage),
                 backgroundColor: Colors.transparent,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 studentName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'ID: $studentID',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Email: $email',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'GPA: $gpa',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Department: $department',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Phone: $phoneNumber',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 'Percentage: $percentage%',
                 style: TextStyle(fontSize: 18, color: Colors.grey[600]),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Edit Profile Button (optional)
               ElevatedButton(
                 onPressed: () {
                   // Implement your edit profile functionality here
                 },
-                child: Text('Edit Profile'),
+                child: const Text('Edit Profile'),
               ),
             ],
           ),

@@ -1,11 +1,16 @@
 import 'package:college_app/widgets/custom_button.dart';
 import 'package:college_app/widgets/custom_text_form.dart';
 import 'package:college_app/screens/home_screen.dart';
+import 'package:college_app/widgets/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class Login extends StatefulWidget {
   static String id = 'login page';
+  final VoidCallback toggleTheme;
+
+  const Login({super.key, required this.toggleTheme});
+
   @override
   State<Login> createState() => _LoginState();
 }
@@ -14,6 +19,7 @@ class _LoginState extends State<Login> {
   String? email, password;
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -26,25 +32,25 @@ class _LoginState extends State<Login> {
             key: formKey,
             child: ListView(
               children: [
-                // ignore: prefer_const_constructors
-
+                SizedBox(
+                  height: 10,
+                ),
                 Image.asset(
                   'lib/images/fcai.jpg',
                   height: 200,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 25),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Welcome to FCAI",
                       style: TextStyle(
-                          color: Colors.indigo,
-                          fontSize: 24,
-                          fontFamily: 'times new roman',
-                          fontWeight: FontWeight.bold),
+                        color: Colors.indigo,
+                        fontSize: 24,
+                        fontFamily: 'times new roman',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -61,7 +67,6 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-
                 const Row(
                   children: [
                     Text(
@@ -73,7 +78,6 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-
                 CustomTextFormField(
                   secured: false,
                   onChanged: (value) {
@@ -85,9 +89,7 @@ class _LoginState extends State<Login> {
                     color: Colors.indigo,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 CustomTextFormField(
                   secured: true,
                   onChanged: (value) {
@@ -99,44 +101,23 @@ class _LoginState extends State<Login> {
                     color: Colors.indigo,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-
+                const SizedBox(height: 20),
                 CustomButton(
                   buttonContent: 'Login',
+                  color: Colors.indigo,
+                  icon: Icons.login,
+                  iconColor: Colors.white,
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                    // if (formKey.currentState!.validate()) {
-                    //   isLoading = true;
-                    //   setState(() {});
-                    //   try {
-                    //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    //         email: email!, password: password!);
-
-                    //     Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //             builder: (context) => HomeScreen()));
-                    //   } on FirebaseAuthException catch (e) {
-                    //     if (e.code == 'user-not-found') {
-                    //       ShowSnackBar(context,
-                    //           'This user is not exist , Try to sign up ⛔');
-                    //     } else if (e.code == 'wrong-password') {
-                    //       ShowSnackBar(context, 'Wrong password ⛔');
-                    //     }
-                    //   } catch (e) {
-                    //     ShowSnackBar(context,
-                    //         'There is something went wrong , please try again later !');
-                    //     print(e);
-                    //   }
-                    //   isLoading = false;
-                    //   setState(() {});
-                    // } else {}
+                    ShowSnackBar(context, 'Logged in successfully ✅');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HomeScreen(toggleTheme: widget.toggleTheme),
+                      ),
+                    );
                   },
                 ),
-
                 Image.asset(
                   'lib/images/Privacy policy-rafiki.png',
                   height: 300,

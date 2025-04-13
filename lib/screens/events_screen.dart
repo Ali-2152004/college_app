@@ -28,15 +28,19 @@ class EventsScreen extends StatelessWidget {
     },
   ];
 
+  EventsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Upcoming Events',
-          style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.indigo,
+        title: const Text('Upcoming Events',
+            style: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            )),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,15 +50,15 @@ class EventsScreen extends StatelessWidget {
             final event = events[index];
             return Card(
               elevation: 4.0,
-              margin: EdgeInsets.symmetric(vertical: 8.0),
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: ListTile(
-                contentPadding: EdgeInsets.all(16.0),
+                contentPadding: const EdgeInsets.all(16.0),
                 title: Text(
                   event['title'] ?? 'No Title',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.blueAccent,
@@ -63,25 +67,25 @@ class EventsScreen extends StatelessWidget {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       'Date: ${event['date'] ?? 'No Date'}',
                       style: TextStyle(
                         fontSize: 14.0,
-                        color: Colors.grey[600],
+                        color: Colors.grey[800],
                       ),
                     ),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     Text(
                       'Description: ${event['description'] ?? 'No Description'}',
                       style: TextStyle(
                         fontSize: 14.0,
-                        color: Colors.grey[700],
+                        color: Colors.black,
                       ),
                     ),
                   ],
                 ),
-                leading: Icon(
+                leading: const Icon(
                   Icons.event,
                   color: Colors.blueAccent,
                   size: 30.0,
