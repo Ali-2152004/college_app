@@ -32,16 +32,15 @@ class _LoginState extends State<Login> {
             key: formKey,
             child: ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Image.asset(
-                  'lib/images/fcai.jpg',
-                  height: 200,
+                  'images/logo3.png',
+                  height: 120,
                 ),
-                const SizedBox(height: 25),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                const SizedBox(height: 18),
+                Column(
                   children: [
                     Text(
                       "Welcome to FCAI",
@@ -52,11 +51,6 @@ class _LoginState extends State<Login> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ],
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
                     Text(
                       "Let's access work from here ",
                       style: TextStyle(
@@ -65,18 +59,20 @@ class _LoginState extends State<Login> {
                         fontFamily: 'encode',
                       ),
                     ),
-                  ],
-                ),
-                const Row(
-                  children: [
-                    Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 23,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.indigo, fontSize: 24),
                       ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 CustomTextFormField(
                   secured: false,
@@ -85,7 +81,7 @@ class _LoginState extends State<Login> {
                   },
                   textHint: 'Email',
                   icon: const Icon(
-                    Icons.email_outlined,
+                    Icons.email,
                     color: Colors.indigo,
                   ),
                 ),
@@ -97,14 +93,14 @@ class _LoginState extends State<Login> {
                   },
                   textHint: 'Password',
                   icon: const Icon(
-                    Icons.lock_outline,
+                    Icons.password,
                     color: Colors.indigo,
                   ),
                 ),
                 const SizedBox(height: 20),
                 CustomButton(
                   buttonContent: 'Login',
-                  color: Colors.indigo,
+                  color: const Color.fromARGB(255, 35, 46, 108),
                   icon: Icons.login,
                   iconColor: Colors.white,
                   onTap: () {
@@ -119,8 +115,8 @@ class _LoginState extends State<Login> {
                   },
                 ),
                 Image.asset(
-                  'lib/images/Privacy policy-rafiki.png',
-                  height: 300,
+                  'images/Privacy policy-rafiki.png',
+                  height: 250,
                 ),
               ],
             ),

@@ -78,7 +78,7 @@ class EventsScreen extends StatelessWidget {
                     const SizedBox(height: 4.0),
                     Text(
                       'Description: ${event['description'] ?? 'No Description'}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),

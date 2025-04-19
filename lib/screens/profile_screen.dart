@@ -1,4 +1,3 @@
-import 'package:college_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {

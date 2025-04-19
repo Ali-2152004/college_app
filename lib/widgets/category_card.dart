@@ -37,7 +37,7 @@ class CategoryCard extends StatelessWidget {
                   imagePath,
                   height: 70,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text(

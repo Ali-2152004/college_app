@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundImage: AssetImage('lib/images/aliprofile.jpg'),
+                    backgroundImage: AssetImage('images/aliprofile.jpg'),
                     radius: 40,
                   ),
                   SizedBox(height: 10),
@@ -78,12 +78,12 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileScreen()),
+                            builder: (context) => const ProfileScreen()),
                       );
                     },
                     child: const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage('lib/images/aliprofile.jpg'),
+                      radius: 25,
+                      backgroundImage: AssetImage('images/aliprofile.jpg'),
                     ),
                   ),
                   IconButton(
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     CategoryCard(
                       title: 'Timetable',
-                      imagePath: 'lib/images/schedule.png',
+                      imagePath: 'images/schedule.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Assignments',
-                      imagePath: 'lib/images/online-learning.png',
+                      imagePath: 'images/assignment.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -136,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Events',
-                      imagePath: 'lib/images/calendar.png',
+                      imagePath: 'images/calendar.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'QR Code',
-                      imagePath: 'lib/images/qr.png',
+                      imagePath: 'images/qr.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -158,7 +158,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Results',
-                      imagePath: 'lib/images/evaluation.png',
+                      imagePath: 'images/evaluation.png',
                       onTap: () {
                         // Replace with real screen later
                         Navigator.push(
@@ -170,7 +170,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Courses',
-                      imagePath: 'lib/images/online-learning.png',
+                      imagePath: 'images/online-learning.png',
                       onTap: () {
                         // Replace with real screen later
                         Navigator.push(
