@@ -1,6 +1,8 @@
+import 'package:college_app/constants.dart';
 import 'package:college_app/screens/courses.dart';
 import 'package:college_app/screens/login_screen.dart';
 import 'package:college_app/screens/results.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'timetable_screen.dart';
 import 'assignments_screen.dart';
@@ -16,18 +18,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kscreenColor,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.indigo,
+                color: kPrimaryColor,
               ),
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundImage: AssetImage('images/aliprofile.jpg'),
+                    backgroundImage: AssetImage('images/studentProfile.jpeg'),
                     radius: 40,
                   ),
                   SizedBox(height: 10),
@@ -70,8 +73,10 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: ListView(
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -82,9 +87,22 @@ class HomeScreen extends StatelessWidget {
                       );
                     },
                     child: const CircleAvatar(
-                      radius: 25,
+                      radius: 28,
                       backgroundImage: AssetImage('images/aliprofile.jpg'),
                     ),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Text(
+                    'Welcome back \n Ali Ahmad !',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xff182454)),
+                  ),
+                  Spacer(
+                    flex: 1,
                   ),
                   IconButton(
                     icon: const Icon(Icons.menu, size: 40),
@@ -94,17 +112,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text(
-                  'Welcome back !,\n Ali Ahmad',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 50),
               SizedBox(
                 height: 700,
                 child: GridView.count(

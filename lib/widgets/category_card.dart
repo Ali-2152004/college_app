@@ -1,3 +1,4 @@
+import 'package:college_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -26,7 +27,7 @@ class CategoryCard extends StatelessWidget {
           borderRadius:
               BorderRadius.circular(16.0), // Rounded corners for inner content
           child: Container(
-            decoration: const BoxDecoration(color: Colors.indigo),
+            decoration: const BoxDecoration(color: kPrimaryColor),
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
             child: Column(
@@ -35,7 +36,7 @@ class CategoryCard extends StatelessWidget {
               children: [
                 Image.asset(
                   imagePath,
-                  height: 70,
+                  height: 60,
                 ),
                 const SizedBox(
                   height: 20,
@@ -45,7 +46,7 @@ class CategoryCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14.0, // Larger font size for title
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // White text for good contrast
+                    color: kTextColor, // White text for good contrast
                   ),
                 ),
               ],
