@@ -1,4 +1,3 @@
-import 'package:college_app/constants.dart';
 import 'package:college_app/screens/event_details.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +49,6 @@ class EventsScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final event = events[index];
             return Card(
-              color: kPrimaryColor,
               elevation: 4.0,
               margin: const EdgeInsets.symmetric(vertical: 8.0),
               shape: RoundedRectangleBorder(
@@ -63,7 +61,7 @@ class EventsScreen extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
-                    color: kTextColor,
+                    color: Colors.blueAccent,
                   ),
                 ),
                 subtitle: Column(
@@ -87,6 +85,29 @@ class EventsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                leading: const Icon(
+                  Icons.event,
+                  color: Colors.blueAccent,
+                  size: 30.0,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.grey[600],
+                  size: 18.0,
+                ),
+                onTap: () {
+                  // Push the EventDetailsScreen when an event is tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EventDetailsScreen(
+                        title: event['title'] ?? 'Unknown Event',
+                        date: event['date'] ?? 'Unknown Date',
+                        description: event['description'] ?? 'No Description',
+                      ),
+                    ),
+                  );
+                },
               ),
             );
           },

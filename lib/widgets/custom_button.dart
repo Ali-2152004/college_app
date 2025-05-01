@@ -19,24 +19,23 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
           color: color ?? Colors.cyan,
         ),
-        height: 50,
-        width: 300,
+        height: 60,
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              buttonContent!,
+              '$buttonContent',
               style: TextStyle(
                 fontSize: 24,
                 color: iconColor,
               ),
             ),
             const SizedBox(
-              width: 18,
+              width: 20,
             ),
             Icon(
               icon,
