@@ -2,6 +2,7 @@ import 'package:college_app/widgets/custom_button.dart';
 import 'package:college_app/widgets/custom_text_form.dart';
 import 'package:college_app/screens/home_screen.dart';
 import 'package:college_app/widgets/show_snackbar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -27,27 +28,27 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Form(
             key: formKey,
             child: ListView(
               children: [
                 const SizedBox(
-                  height: 10,
+                  height: 50,
                 ),
                 Image.asset(
                   'images/logo3.png',
-                  height: 120,
+                  height: 106,
                 ),
                 const SizedBox(height: 18),
-                Column(
+                const Column(
                   children: [
                     Text(
                       "Welcome to FCAI",
                       style: TextStyle(
                         color: Colors.indigo,
                         fontSize: 24,
-                        fontFamily: 'times new roman',
+                        fontFamily: 'Encode Sans Expanded',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -55,7 +56,7 @@ class _LoginState extends State<Login> {
                       "Let's access work from here ",
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 15,
+                        fontSize: 12,
                         fontFamily: 'encode',
                       ),
                     ),

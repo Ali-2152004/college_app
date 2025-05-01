@@ -15,6 +15,8 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorWidth: 2,
+      cursorColor: Colors.indigo,
       obscureText: secured!,
       validator: (data) {
         if (data!.isEmpty) {
@@ -27,17 +29,19 @@ class CustomTextFormField extends StatelessWidget {
       ),
       onChanged: onChanged,
       decoration: InputDecoration(
+        
         prefixIcon: icon,
         hintText: textHint,
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+          
+            borderRadius: BorderRadius.circular(18),
             borderSide: const BorderSide(color: Colors.indigo)),
         hintStyle: const TextStyle(color: Colors.indigo),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
             borderSide: const BorderSide(color: Colors.indigo)),
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(18),
             borderSide: const BorderSide(color: Colors.indigo)),
       ),
     );

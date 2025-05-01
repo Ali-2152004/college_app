@@ -1,4 +1,7 @@
+import 'package:college_app/constants.dart';
+import 'package:college_app/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
+import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:qr_flutter/qr_flutter.dart'; // Import QR package
 
 class QRCodeScreen extends StatelessWidget {
@@ -10,55 +13,52 @@ class QRCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Your QR Code',
-          style: TextStyle(
-              fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: Colors.indigo,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            const Text(
-              'Scan the QR Code for attendence:',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
+      backgroundColor: kscreenColor,
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 20,
+          ),
+          CustomAppBar(title: 'Your QR code'),
+          Container(
+            width: 364,
+            height: 447,
+            decoration: BoxDecoration(
+              color: kPrimaryColor,
+              borderRadius: BorderRadius.circular(20.0),
             ),
-            const SizedBox(height: 20.0),
-            Container(
-              padding: const EdgeInsets.all(18.0),
-              decoration: BoxDecoration(
-                color: Colors.indigo,
-                borderRadius: BorderRadius.circular(20.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blueAccent.withOpacity(0.2),
-                    blurRadius: 15.0,
-                    offset: const Offset(0, 6),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 16,
+                ),
+                const Text(
+                  'Scan the QR Code for attendence:',
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff1E3A8C)),
+                ),
+                const SizedBox(height: 40.0),
+                Container(
+                  padding: const EdgeInsets.all(18.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                ],
-              ),
-              child: QrImageView(
-                data: studentData, // The data embedded in the QR code
-                size: 200.0, // Adjust QR code size
-                backgroundColor: Colors.white70,
-              ),
+                  child: SizedBox(
+                    height: 267,
+                    child: PrettyQrView.data(
+                        data: studentData,
+                        decoration: PrettyQrDecoration(
+                            shape: PrettyQrSmoothSymbol(
+                          color: Color(0xff182454),
+                        ))),
+                  ),
+                )
+              ],
             ),
-            const SizedBox(height: 20.0),
-            Image.asset(
-              'lib/images/QR Code-rafiki.png',
-              width: double.infinity,
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
