@@ -1,5 +1,6 @@
 import 'package:college_app/constants.dart';
 import 'package:college_app/screens/event_details.dart';
+import 'package:college_app/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
 
 class EventsScreen extends StatelessWidget {
@@ -34,63 +35,65 @@ class EventsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        title: const Text('Upcoming Events',
-            style: TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            )),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: events.length,
-          itemBuilder: (context, index) {
-            final event = events[index];
-            return Card(
-              color: kPrimaryColor,
-              elevation: 4.0,
-              margin: const EdgeInsets.symmetric(vertical: 8.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.all(16.0),
-                title: Text(
-                  event['title'] ?? 'No Title',
-                  style: const TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: kTextColor,
-                  ),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8.0),
-                    Text(
-                      'Date: ${event['date'] ?? 'No Date'}',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: Colors.grey[800],
+      backgroundColor: kscreenColor,
+      body: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          CustomAppBar(title: 'Upcoming Events'),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: ListView.builder(
+                itemCount: events.length,
+                itemBuilder: (context, index) {
+                  final event = events[index];
+                  return Card(
+                    color: kPrimaryColor,
+                    elevation: 4.0,
+                    margin: const EdgeInsets.symmetric(vertical: 8.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(16.0),
+                      title: Text(
+                        event['title'] ?? 'No Title',
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: kTextColor,
+                        ),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 8.0),
+                          Text(
+                            'Date: ${event['date'] ?? 'No Date'}',
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.grey[800],
+                            ),
+                          ),
+                          const SizedBox(height: 4.0),
+                          Text(
+                            'Description: ${event['description'] ?? 'No Description'}',
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 4.0),
-                    Text(
-                      'Description: ${event['description'] ?? 'No Description'}',
-                      style: const TextStyle(
-                        fontSize: 14.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

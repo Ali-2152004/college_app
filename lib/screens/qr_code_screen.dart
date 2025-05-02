@@ -16,10 +16,13 @@ class QRCodeScreen extends StatelessWidget {
       backgroundColor: kscreenColor,
       body: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          CustomAppBar(title: 'Your QR code'),
+          const CustomAppBar(title: 'Your QR code'),
+          SizedBox(
+            height: 30,
+          ),
           Container(
             width: 364,
             height: 447,
@@ -29,7 +32,7 @@ class QRCodeScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 const Text(
@@ -51,7 +54,7 @@ class QRCodeScreen extends StatelessWidget {
                         data: studentData,
                         decoration: PrettyQrDecoration(
                             shape: PrettyQrSmoothSymbol(
-                          color: Color(0xff182454),
+                          color: const Color(0xff182454),
                         ))),
                   ),
                 )
