@@ -1,3 +1,5 @@
+import 'package:college_app/constants.dart';
+import 'package:college_app/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
 
 class Course {
@@ -18,79 +20,84 @@ class CoursesScreen extends StatelessWidget {
   final List<Course> courses = [
     Course(name: 'Mobile Development', code: 'CS-430', creditHours: 3),
     Course(name: 'Data Structures', code: 'CS-201', creditHours: 3),
-    Course(name: 'Algorithms', code: 'CS-301', creditHours: 3),
+    Course(name: 'Introduction to MM', code: 'CS-301', creditHours: 3),
     Course(name: 'Database Systems', code: 'CS-320', creditHours: 3),
-    Course(name: 'Operating Systems', code: 'CS-350', creditHours: 3),
+    Course(name: 'Technical writing', code: 'HU-350', creditHours: 1),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Courses'),
-        backgroundColor: Colors.indigo[900],
-        foregroundColor: Colors.white,
-        elevation: 4,
-      ),
+      backgroundColor: kscreenColor,
       body: Container(
-        child: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: courses.length,
-          itemBuilder: (context, index) {
-            final course = courses[index];
-            return Card(
-              elevation: 2,
-              color: Colors.white38,
-              margin: const EdgeInsets.symmetric(vertical: 8),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.all(16),
-                leading: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.indigo[50],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    course.code,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.indigo[900],
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            CustomAppBar(title: 'Courses'),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: courses.length,
+                itemBuilder: (context, index) {
+                  final course = courses[index];
+                  return Card(
+                    elevation: 2,
+                    color: kPrimaryColor,
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  ),
-                ),
-                title: Text(
-                  course.name,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                trailing: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${course.creditHours} hrs',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.w500,
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(16),
+                      leading: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: kscreenColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          course.code,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: kTextColor,
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        course.name,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: kTextColor),
+                      ),
+                      trailing: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '${course.creditHours} hrs',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: kTextColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Icon(
+                            Icons.access_time,
+                            size: 20,
+                            color: Colors.indigo[800],
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Icon(
-                      Icons.school,
-                      size: 20,
-                      color: Colors.indigo[800],
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
+            ),
+          ],
         ),
       ),
     );

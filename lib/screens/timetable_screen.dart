@@ -47,10 +47,10 @@ class TimetableScreen extends StatelessWidget {
       backgroundColor: kscreenColor,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          CustomAppBar(title: 'Timetable'),
+          const CustomAppBar(title: 'Timetable'),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

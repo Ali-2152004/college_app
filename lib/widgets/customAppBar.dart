@@ -1,4 +1,3 @@
-
 import 'dart:ui' show TextStyle;
 
 import 'package:college_app/constants.dart';
@@ -7,7 +6,8 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
   final String title;
   @override
@@ -18,14 +18,14 @@ class CustomAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-           Text(
+          Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 24.0, fontWeight: FontWeight.bold, color: kTextColor),
           ),
           GestureDetector(
-            child: SvgPicture.asset(
-              'images/backarrow.svg',
+            child: Image.asset(
+              'images/backarrow.png',
               width: 27,
               height: 27,
             ),
