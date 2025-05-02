@@ -20,17 +20,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kscreenColor,
       drawer: Drawer(
-        backgroundColor: Color(0xff94C3FA),
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xff94C3FA),
+                color: kPrimaryColor,
               ),
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundImage: AssetImage('images/aliprofile.jpg'),
+                    backgroundImage: AssetImage('images/studentProfile.jpeg'),
                     radius: 40,
                   ),
                   SizedBox(height: 10),
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
           child: ListView(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
               Row(
@@ -91,17 +91,17 @@ class HomeScreen extends StatelessWidget {
                       backgroundImage: AssetImage('images/aliprofile.jpg'),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 30,
                   ),
-                  const Text(
+                  Text(
                     'Welcome back \n Ali Ahmad !',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                         color: Color(0xff182454)),
                   ),
-                  const Spacer(
+                  Spacer(
                     flex: 1,
                   ),
                   IconButton(
@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     CategoryCard(
                       title: 'Timetable',
-                      imagePath: 'images/schedule2.png',
+                      imagePath: 'images/schedule.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -133,7 +133,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Assignments',
-                      imagePath: 'images/assignments2.png',
+                      imagePath: 'images/assignment.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -144,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Events',
-                      imagePath: 'images/events.png',
+                      imagePath: 'images/calendar.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -155,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'QR Code',
-                      imagePath: 'images/face_id.png',
+                      imagePath: 'images/qr.png',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -166,7 +166,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Results',
-                      imagePath: 'images/result.png',
+                      imagePath: 'images/evaluation.png',
                       onTap: () {
                         // Replace with real screen later
                         Navigator.push(
@@ -178,7 +178,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     CategoryCard(
                       title: 'Courses',
-                      imagePath: 'images/courses.png',
+                      imagePath: 'images/online-learning.png',
                       onTap: () {
                         // Replace with real screen later
                         Navigator.push(
