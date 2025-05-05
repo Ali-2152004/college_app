@@ -1,8 +1,6 @@
-import 'dart:ui' show TextStyle;
 
 import 'package:college_app/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

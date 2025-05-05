@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kscreenColor,
       drawer: Drawer(
-        backgroundColor: Color(0xff94C3FA),
+        backgroundColor: const Color(0xff94C3FA),
         child: ListView(
           children: [
             const DrawerHeader(

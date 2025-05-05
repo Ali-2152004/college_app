@@ -1,4 +1,5 @@
 import 'package:college_app/constants.dart';
+import 'package:college_app/screens/signup.dart';
 import 'package:college_app/widgets/custom_button.dart';
 import 'package:college_app/widgets/custom_text_form.dart';
 import 'package:college_app/screens/home_screen.dart';
@@ -95,7 +96,7 @@ class _LoginState extends State<Login> {
                               color: Colors.black,
                             ),
                           ),
-                          Container(height: 25),
+                          Container(height: 28),
                           CustomButton(
                             buttonContent: 'Login',
                             color: kTextColor,
@@ -120,7 +121,7 @@ class _LoginState extends State<Login> {
                             color: Color(0xffffffffff),
                             iconColor: Color(0xff334155),
                             onTap: () {
-                              ShowSnackBar(context, 'Logged in successfully ✅');
+                              ShowSnackBar(context, 'Logged in successfully ✅' , );
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -144,7 +145,14 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (contex) => Signup(
+                                                toggleTheme: widget.toggleTheme,
+                                              )));
+                                },
                                 child: Text(
                                   'Sign up',
                                   style: TextStyle(
@@ -165,6 +173,9 @@ class _LoginState extends State<Login> {
                               color: Color(0xff3B82F6),
                             ),
                           ),
+                          SizedBox(
+                            height: 20,
+                          )
                         ],
                       ),
                     ),

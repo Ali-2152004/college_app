@@ -1,5 +1,4 @@
 import 'package:college_app/constants.dart';
-import 'package:college_app/screens/event_details.dart';
 import 'package:college_app/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
 
@@ -38,10 +37,10 @@ class EventsScreen extends StatelessWidget {
       backgroundColor: kscreenColor,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          CustomAppBar(title: 'Upcoming Events'),
+          const CustomAppBar(title: 'Upcoming Events'),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(16),

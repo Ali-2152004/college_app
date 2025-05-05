@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:college_app/constants.dart';
 import 'package:college_app/widgets/custom_button.dart';
 import 'package:college_app/widgets/custom_text_form.dart';
@@ -49,7 +51,7 @@ class _SignupState extends State<Signup> {
                         children: [
                           const Center(
                             child: Text(
-                              "Signup",
+                              "Sign up",
                               style: TextStyle(
                                 color: Color(0xff334155),
                                 fontSize: 22,
@@ -59,9 +61,9 @@ class _SignupState extends State<Signup> {
                             ),
                           ),
                           const SizedBox(height: 30),
-                          Align(
+                          const Align(
                             alignment: Alignment.centerLeft,
-                            child: const Text(
+                            child: Text(
                               'Email',
                               style: TextStyle(
                                   color: Color(0xff64748D), fontSize: 14),
@@ -76,9 +78,9 @@ class _SignupState extends State<Signup> {
                             textHint: 'example@gmail.com',
                           ),
                           const SizedBox(height: 15),
-                          Align(
+                          const Align(
                             alignment: Alignment.bottomLeft,
-                            child: const Text(
+                            child: Text(
                               'Password',
                               style: TextStyle(
                                   color: Color(0xff64748D), fontSize: 14),
@@ -95,11 +97,21 @@ class _SignupState extends State<Signup> {
                               color: Colors.black,
                             ),
                           ),
-                          Container(height: 25),
+                          Container(
+                            alignment: Alignment.bottomLeft,
+                            height: 22,
+                            child: const Text(
+                              'At least 8 characters and one number.',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 44,
+                          ),
                           CustomButton(
-                            buttonContent: 'Signup',
+                            buttonContent: 'Sign up',
                             color: kTextColor,
-                            iconColor: Color(0xffffffff),
+                            iconColor: const Color(0xffffffff),
                             onTap: () {
                               ShowSnackBar(context, 'Logged in successfully ✅');
                               Navigator.push(
@@ -111,14 +123,40 @@ class _SignupState extends State<Signup> {
                               );
                             },
                           ),
-                          SizedBox(
-                            height: 10,
+                          const SizedBox(
+                            height: 22,
+                          ),
+                          const Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                  'OR',
+                                  style: TextStyle(color: Color(0xff94A3B8)),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 14,
                           ),
                           CustomButton(
                             imageUrl: 'images/search.png',
-                            buttonContent: 'Continue with Google',
-                            color: Color(0xffffffffff),
-                            iconColor: Color(0xff334155),
+                            buttonContent: 'Sign up with Google',
+                            color: const Color(0xffffffffff),
+                            iconColor: const Color(0xff334155),
                             onTap: () {
                               ShowSnackBar(context, 'Logged in successfully ✅');
                               Navigator.push(
@@ -130,23 +168,25 @@ class _SignupState extends State<Signup> {
                               );
                             },
                           ),
-                          SizedBox(
-                            height: 33,
+                          const SizedBox(
+                            height: 53,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                'Don’t have an account? ',
+                              const Text(
+                                'Already have an account ? ',
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: kTextColor,
                                 ),
                               ),
                               GestureDetector(
-                                onTap: () {},
-                                child: Text(
-                                  'Sign up',
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  'Log in',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Color(0xff3B82F6),
@@ -154,16 +194,6 @@ class _SignupState extends State<Signup> {
                                 ),
                               ),
                             ],
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            'Forgot your Password ?',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(0xff3B82F6),
-                            ),
                           ),
                         ],
                       ),

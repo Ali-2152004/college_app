@@ -20,7 +20,7 @@ class QRCodeScreen extends StatelessWidget {
             height: 20,
           ),
           const CustomAppBar(title: 'Your QR code'),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
