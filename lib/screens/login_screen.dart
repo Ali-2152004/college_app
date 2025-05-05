@@ -1,5 +1,3 @@
-import 'package:college_app/constants.dart';
-import 'package:college_app/screens/signup.dart';
 import 'package:college_app/widgets/custom_button.dart';
 import 'package:college_app/widgets/custom_text_form.dart';
 import 'package:college_app/screens/home_screen.dart';
@@ -27,174 +25,102 @@ class _LoginState extends State<Login> {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
-        backgroundColor: kscreenColor,
+        backgroundColor: Colors.white,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Form(
             key: formKey,
             child: ListView(
               children: [
-                const SizedBox(height: 100),
-                Stack(
-                  alignment: Alignment.topCenter,
-                  clipBehavior: Clip.none,
+                SizedBox(
+                  height: 10,
+                ),
+                Image.asset(
+                  'lib/images/fcai.jpg',
+                  height: 200,
+                ),
+                const SizedBox(height: 25),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: kPrimaryColor,
-                      ),
-                      padding: const EdgeInsets.fromLTRB(20, 50, 20, 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Center(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                color: Color(0xff334155),
-                                fontSize: 22,
-                                fontFamily: 'Encode Sans Expanded',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 30),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: const Text(
-                              'Email',
-                              style: TextStyle(
-                                  color: Color(0xff64748D), fontSize: 14),
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          CustomTextFormField(
-                            secured: false,
-                            onChanged: (value) {
-                              email = value;
-                            },
-                            textHint: 'example@gmail.com',
-                          ),
-                          const SizedBox(height: 15),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: const Text(
-                              'Password',
-                              style: TextStyle(
-                                  color: Color(0xff64748D), fontSize: 14),
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          CustomTextFormField(
-                            secured: true,
-                            onChanged: (value) {
-                              password = value;
-                            },
-                            icon: const Icon(
-                              Icons.remove_red_eye_outlined,
-                              color: Colors.black,
-                            ),
-                          ),
-                          Container(height: 28),
-                          CustomButton(
-                            buttonContent: 'Login',
-                            color: kTextColor,
-                            iconColor: Color(0xffffffff),
-                            onTap: () {
-                              ShowSnackBar(context, 'Logged in successfully ✅');
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomeScreen(
-                                      toggleTheme: widget.toggleTheme),
-                                ),
-                              );
-                            },
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CustomButton(
-                            imageUrl: 'images/search.png',
-                            buttonContent: 'Continue with Google',
-                            color: Color(0xffffffffff),
-                            iconColor: Color(0xff334155),
-                            onTap: () {
-                              ShowSnackBar(context, 'Logged in successfully ✅' , );
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomeScreen(
-                                      toggleTheme: widget.toggleTheme),
-                                ),
-                              );
-                            },
-                          ),
-                          SizedBox(
-                            height: 33,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Don’t have an account? ',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: kTextColor,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (contex) => Signup(
-                                                toggleTheme: widget.toggleTheme,
-                                              )));
-                                },
-                                child: Text(
-                                  'Sign up',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Color(0xff3B82F6),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            'Forgot your Password ?',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(0xff3B82F6),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          )
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: -25,
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.white,
-                        child: ClipOval(
-                          child: Image.asset(
-                            'images/logo3.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                    Text(
+                      "Welcome to FCAI",
+                      style: TextStyle(
+                        color: Colors.indigo,
+                        fontSize: 24,
+                        fontFamily: 'times new roman',
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Let's access work from here ",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontFamily: 'encode',
+                      ),
+                    ),
+                  ],
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 23,
+                      ),
+                    ),
+                  ],
+                ),
+                CustomTextFormField(
+                  secured: false,
+                  onChanged: (value) {
+                    email = value;
+                  },
+                  textHint: 'Email',
+                  icon: const Icon(
+                    Icons.email_outlined,
+                    color: Colors.indigo,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                CustomTextFormField(
+                  secured: true,
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  textHint: 'Password',
+                  icon: const Icon(
+                    Icons.lock_outline,
+                    color: Colors.indigo,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  buttonContent: 'Login',
+                  color: Colors.indigo,
+                  icon: Icons.login,
+                  iconColor: Colors.white,
+                  onTap: () {
+                    ShowSnackBar(context, 'Logged in successfully ✅');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HomeScreen(toggleTheme: widget.toggleTheme),
+                      ),
+                    );
+                  },
+                ),
+                Image.asset(
+                  'lib/images/Privacy policy-rafiki.png',
+                  height: 300,
                 ),
               ],
             ),

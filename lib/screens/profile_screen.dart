@@ -1,5 +1,3 @@
-import 'package:college_app/constants.dart';
-import 'package:college_app/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -8,20 +6,27 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kscreenColor,
+      backgroundColor: const Color.fromARGB(255, 60, 105, 167),
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        elevation: 0.0,
+        backgroundColor: Colors.indigo,
+        title: const Text('My Profile',
+            style: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            )),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(children: [
-          SizedBox(
-            height: 20,
-          ),
-          CustomAppBar(title: 'Profile'),
-          SizedBox(height: 20),
+          // Profile Picture & Basic Info
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-              color: kPrimaryColor,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: const Row(
@@ -30,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 40.0,
-                      backgroundImage: AssetImage('images/aliprofile.jpg'),
+                      backgroundImage: AssetImage('lib/images/aliprofile.jpg'),
                     ),
                   ],
                 ),
@@ -57,16 +62,16 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
+
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-              color: kPrimaryColor,
+              color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
               children: [
-                profileRow('NID', '30405212200098'),
                 profileRow('Department', 'Information Technology'),
                 profileRow('Email', '3li.a7med.xr@gmail.com'),
                 profileRow('GPA', '3.45'),
@@ -77,8 +82,9 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
+          Image.asset('lib/images/Profile data-bro.png')
         ]),
       ),
     );
@@ -94,12 +100,14 @@ class ProfileScreen extends StatelessWidget {
             child: Text(
               "$title :",
               style: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold, color: kTextColor),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo),
             ),
           ),
           Text(
             value,
-            style: const TextStyle(fontSize: 13, color: Color(0xff1C3C85)),
+            style: const TextStyle(fontSize: 16, color: Colors.black),
           ),
         ],
       ),
