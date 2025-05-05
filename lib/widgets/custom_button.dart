@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  String? buttonContent;
+  final String? buttonContent, imageUrl;
   VoidCallback? onTap;
   Color? color, iconColor;
-  IconData? icon;
   CustomButton(
-      {super.key,
-      this.buttonContent,
+      {this.buttonContent,
       this.onTap,
       this.color,
-      this.icon,
-      this.iconColor});
+      this.iconColor,
+      this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,29 +17,30 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(5),
           color: color ?? Colors.cyan,
         ),
-        height: 50,
+        height: 40,
         width: 300,
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (imageUrl != null)
+              Image.asset(
+                imageUrl!,
+                width: 24,
+                height: 24,
+              ),
+            SizedBox(
+              width: 10,
+            ),
             Text(
               buttonContent!,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 16,
                 color: iconColor,
               ),
-            ),
-            const SizedBox(
-              width: 18,
-            ),
-            Icon(
-              icon,
-              color: iconColor,
-              size: 24,
             ),
           ],
         )),

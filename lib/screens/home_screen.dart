@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                 height: 700,
                 child: GridView.count(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 50.0,
+                  crossAxisSpacing: 40.0,
                   mainAxisSpacing: 15.0,
                   children: [
                     CategoryCard(

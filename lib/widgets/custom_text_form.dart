@@ -7,42 +7,46 @@ class CustomTextFormField extends StatelessWidget {
       required this.onChanged,
       required this.secured,
       this.textHint,
-      required this.icon});
+      this.icon});
   String? textHint;
   Function(String)? onChanged;
   final Icon? icon;
   bool? secured;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      cursorWidth: 2,
-      cursorColor: Colors.indigo,
-      obscureText: secured!,
-      validator: (data) {
-        if (data!.isEmpty) {
-          return 'this field is required !';
-        }
-        return null;
-      },
-      style: const TextStyle(
-        color: Colors.indigo,
-      ),
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        
-        prefixIcon: icon,
-        hintText: textHint,
-        focusedBorder: OutlineInputBorder(
-          
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Colors.indigo)),
-        hintStyle: const TextStyle(color: Colors.indigo),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Colors.indigo)),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Colors.indigo)),
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(5)),
+      height: 40,
+      child: TextFormField(
+        cursorWidth: 2,
+        cursorColor: Colors.black,
+        obscureText: secured!,
+        validator: (data) {
+          if (data!.isEmpty) {
+            return 'this field is required !';
+          }
+          return null;
+        },
+        style: const TextStyle(
+          fontSize: 14,
+          color: Colors.black,
+        ),
+        onChanged: onChanged,
+        decoration: InputDecoration(
+          suffixIcon: icon,
+          hintText: textHint,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: const BorderSide(color: Color(0xffCBD5E1))),
+          hintStyle: const TextStyle(color: Color.fromARGB(255, 114, 119, 126)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: const BorderSide(color: Color(0xffCBD5E1))),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: const BorderSide(color: Color(0xffCBD5E1))),
+        ),
       ),
     );
   }

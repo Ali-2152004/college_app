@@ -77,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
         ]),
       ),
@@ -94,12 +94,12 @@ class ProfileScreen extends StatelessWidget {
             child: Text(
               "$title :",
               style: const TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.bold, color: kTextColor),
+                  fontSize: 16, fontWeight: FontWeight.bold, color: kTextColor),
             ),
           ),
           Text(
             value,
-            style: const TextStyle(fontSize: 16, color: Color(0xff1C3C85)),
+            style: const TextStyle(fontSize: 13, color: Color(0xff1C3C85)),
           ),
         ],
       ),
